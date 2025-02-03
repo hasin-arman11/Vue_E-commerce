@@ -22,7 +22,7 @@ urlpatterns = [
     path('<slug:category_slug>/<slug:product_slug>/',ProductDetails.as_view(),name="product"),
     path('orders/',OrderAPIView.as_view(),name="orders_api"),
     path('categories/',AllCategoryView.as_view(),name="categories"),
-    # path('<slug:category_slug>/',Categoryview.as_view(),name="category"),
+    path('<slug:category_slug>/',Categoryview.as_view(),name="category"),
 
     # Generic api views
     # path('get_product/<int:pk>/',ProductRetrieveUpdateDestroyView.as_view(),name="retrives"),

@@ -19,8 +19,10 @@ class ProductView(APIView):
         return Response(serializer.data)
     
     def post(self, request, *args, **kwargs):
-        payload = request.data
-        payload['slug'] = payload['product_name'].lower()
+        payload = request.data.copy()
+        payload['slug'] = payload['product_name'][0].lower()
+        payload['file'] = request.FILES.get('file')
+        print('payload------>',request.FILES.get('file'))
         serializer = product_serializer(data=payload)
         if serializer.is_valid():
             serializer.save()

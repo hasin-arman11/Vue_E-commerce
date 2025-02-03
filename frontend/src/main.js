@@ -2,10 +2,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './routers'
 import 'bootstrap/dist/css/bootstrap.css'
-import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.js'
+import 'bootstrap/dist/js/bootstrap.bundle.js' 
 import store from './store/index.js'
 import axios from 'axios'
-createApp(App).use(bootstrap).use(store).use(router).mount('#app')
+createApp(App).use(store).use(router).mount('#app')
 
 axios.interceptors.request.use(config => {
     console.log('request----->',config)

@@ -1,24 +1,90 @@
 <template>
-  <div>
-    <section class="container">
-      <img
-        src="../assets/6505894.jpg"
-        class="img-fluid w-100"
-        style="height: 400px"
-        alt=""
-      />
-    </section>
-    <h1 class="text-center mb-5 text-primary mt-2">Latest Products</h1>
-    <section class="container mb-5">
-      <div class="row row-cols-3 row-cols-md-3 gy-4">
-        <showProduct
-          v-for="product in products"
-          :key="product.id"
-          :product="product"
-        />
-      </div>
-    </section>
+  <section class="row">
+    <div class="col-10">
+      <section class="container">
+        <div
+          id="carouselExampleControls"
+          class="carousel slide"
+          data-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="fixed-image"
+                src="../assets/headphone.png"
+                alt="First slide"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="../assets/tv.png"
+                alt="Second slide"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="../assets/xbox.png"
+                alt="Third slide"
+              />
+            </div>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#carouselExampleControls"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#carouselExampleControls"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </section>
+      <h1 class="text-center mb-5 text-primary mt-2">Latest Products</h1>
+      <section class="container mb-5">
+        <div class="row row-cols-3 row-cols-md-3 gy-4">
+          <showProduct
+            v-for="product in products"
+            :key="product.id"
+            :product="product"
+          />
+        </div>
+      </section>
+    </div>
+    <div class="col-2 mt-4">
+      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Primary card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
+</div>
+<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Success card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Danger card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -45,4 +111,11 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.fixed-image {
+  height: 400px;
+  object-fit: contain;
+  width: 100%;
+  margin-top: 30px;
+}
+</style>

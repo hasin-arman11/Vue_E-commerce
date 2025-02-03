@@ -28,6 +28,10 @@
         </select>
         <br>
         <br>
+        <div>
+          <label>Choose File</label>
+          <input @change="setFile($event)" style="margin-left:20px" type="file" name="image" id="image">
+        </div>
         <button @click="addProduct" class="btn btn-primary">Submit</button>
     </div>
   </div>
@@ -44,6 +48,7 @@ import axios from 'axios'
                     price:"",
                     description:"",
                     category:"",
+                    file:null
                 },
                 category_list : [],
                 
@@ -57,10 +62,23 @@ import axios from 'axios'
                })
                .catch(err => console.log(err))
             },
+            setFile(event){
+              this.form.file=event.target.files[0]
+            },
             addProduct(event){ 
-                axios.post('http://localhost:8000/products/',this.form)
+              const formData = new FormData();
+              formData.append('file', this.form.file);
+              formData.append('product_name', this.form.product_name);
+              formData.append('category', this.form.category);
+              formData.append('price', this.form.price);
+              formData.append('description', this.form.description);
+              
+
+                axios.post('http://localhost:8000/products/',formData,{headers: {
+                'Content-Type': 'multipart/form-data',
+                }})
                 .then(res=>{
-                    if (res.status==201){
+                    if (res){
                         this.$router.push('/')
                     }
 
