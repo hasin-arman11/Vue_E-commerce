@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav
-      class="navbar bg-dark navbar-expand-lg bg-body-tertiary"
+      class="navbar bg-dark fixed-top navbar-expand-lg bg-body-tertiary"
       data-bs-theme="dark"
     >
       <div class="container-fluid">
